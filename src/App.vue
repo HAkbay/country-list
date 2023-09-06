@@ -18,6 +18,7 @@
               class="input-text"
               placeholder="Search for a country..."
               v-model="textInput"
+              @input="searchCountry(textInput)"
             />
           </div>
         </div>
@@ -45,6 +46,8 @@ export default {
     const error = ref(null)
     const receivedData = ref('')
     let filteredCountryList = ref([])
+    let oldFilteredCountryList = ref([])
+    const textInput = ref('')
 
     const getCountryList = async () => {
       try {
@@ -54,6 +57,7 @@ export default {
         }
         countryList.value = await data.json()
         filteredCountryList.value = countryList.value
+        oldFilteredCountryList.value = filteredCountryList.value
       } catch (err) {
         error.value = err.message
         console.log(error)
@@ -65,13 +69,20 @@ export default {
       filteredCountryList.value = countryList.value.filter(
         (country) => country.region == regionData.value
       )
+      oldFilteredCountryList.value = filteredCountryList.value
+    }
+
+    function searchCountry(textInput) {
+      filteredCountryList.value = oldFilteredCountryList.value.filter((country) =>
+        country.name.toLowerCase().includes(textInput.toLowerCase())
+      )
     }
 
     onMounted(() => {
       getCountryList()
     })
 
-    return { getDataFromChild, receivedData, filteredCountryList }
+    return { getDataFromChild, receivedData, filteredCountryList, searchCountry, textInput }
   },
   computed: {
     computedArray() {

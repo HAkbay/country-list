@@ -1,11 +1,8 @@
 <template>
-  <div class="Mommy">
+  <div class="main-div">
     <header class="tab">
       <div class="tabLeft"><h1>Where in the world?</h1></div>
-      <div class="tabRight">
-        <img src="/src/assets/moon-regular.png" class="logo" />
-        <h3>Dark Mode</h3>
-      </div>
+      <div class="tabRight"></div>
     </header>
     <div class="container">
       <div class="lowerTop">
@@ -93,7 +90,7 @@ export default {
 </script>
 
 <style>
-.Mommy {
+.main-div {
   width: 100%;
   height: 739px;
 }

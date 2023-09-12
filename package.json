@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "json-server": "npx json-server --id numericCode --watch data.json",
     "build": "vite build",
     "preview": "vite preview",

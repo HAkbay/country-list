@@ -14,8 +14,8 @@
             </div>
         </div>
         <div class="table-container">
-            <div v-for="country in filteredCountryList" class="table-cell">
-                <CountryCard :country="country" @click="goTo(country)" />
+            <div v-for="country in filteredCountryList" class="table-cell" @click="goTo(country)">
+                <CountryCard :country="country" />
             </div>
         </div>
     </div>
@@ -147,7 +147,7 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }

@@ -1,18 +1,18 @@
 <template>
   <div class="info-main">
-    <img :src="country.flags.png" class="flag" />
+    <img :src="country.flag" class="flag" />
     <h4>{{ country?.name }}</h4>
     <div class="info">
       <div>Population:</div>
-      {{ country?.population }}
+      <b>{{ country?.population }}</b>
     </div>
     <div class="info">
       <div>Region:</div>
-      {{ country?.region }}
+      <b>{{ country?.region }}</b>
     </div>
-    <div class="info">
+    <div class="info" v-if="country.capital">
       <div>Capital:</div>
-      {{ country?.capital }}
+      <b>{{ country?.capital }}</b>
     </div>
   </div>
 </template>
@@ -26,7 +26,6 @@ export default {
 
 <style>
 .info-main {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 250px;
 }
 
@@ -38,5 +37,6 @@ export default {
   display: flex;
   font-size: 15px;
   line-height: 20px;
+  justify-content: center;
 }
 </style>

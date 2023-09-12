@@ -1,10 +1,10 @@
 {
-  "name": "h-samettin",
+  "name": "country-list",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
-    "json-server": "npx json-server --watch data.json",
+    "json-server": "npx json-server --id numericCode --watch data.json",
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
@@ -25,7 +25,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/test-utils": "^2.4.1",
-    "cypress": "^12.17.4",
+    "cypress": "^13.1.0",
     "eslint": "^8.46.0",
     "eslint-plugin-cypress": "^2.14.0",
     "eslint-plugin-vue": "^9.16.1",

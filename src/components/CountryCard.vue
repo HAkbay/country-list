@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  props: ['country'],
+  props: ['country', 'numericCode'],
   setup() {}
 }
 </script>
@@ -29,11 +29,14 @@ export default {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 250px;
 }
+
 .flag {
   width: 250px;
 }
+
 .info {
   display: flex;
   font-size: 15px;
+  line-height: 20px;
 }
 </style>

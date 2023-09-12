@@ -3,16 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="/src/assets/voli.png">
+  <link rel="icon" href="/src/assets/world-map.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LMAO</title>
+  <title>Country Listing</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Josefin+Sans&family=Nunito+Sans:opsz@6..12&family=Quicksand:wght@300&family=Raleway&display=swap"
     rel="stylesheet">
-
 </head>
 
 <body>
@@ -20,11 +19,28 @@
   <script type="module" src="/src/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
-    
+
     function addDarkmodeWidget() {
-      new Darkmode().showWidget();
+      const options = {
+        bottom: '64px', // default: '32px'
+        right: '64px', // default: '32px'
+        left: 'unset', // default: 'unset'
+        top: 'unset', // default: 'unset'
+        time: '0.6s', // default: '0.3s'
+        mixColor: '#fff', // default: '#fff'
+        backgroundColor: '#fff',  // default: '#fff'
+        buttonColorDark: '#100f2c',  // default: '#100f2c'
+        buttonColorLight: '#fff', // default: '#fff'
+        saveInCookies: true, // default: true,
+        label: '🌓', // default: ''
+        autoMatchOsTheme: true // default: true
+      }
+
+      const darkmode = new Darkmode(options);
+      darkmode.showWidget();
     }
     window.addEventListener('load', addDarkmodeWidget);
+
   </script>
 </body>
 

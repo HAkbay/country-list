@@ -19,10 +19,9 @@ const sendData = () => {
 }
 </script>
 
-
 <style>
 .select {
-  width: 15%;
+  width: 100%;
   height: 30%;
   margin-right: 55px;
   border: none;

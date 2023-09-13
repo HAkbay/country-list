@@ -8,10 +8,19 @@
         </div>
         <div class="text-details">
           <h2>Country name: {{ country.name }}</h2>
-          <h3>Region: {{ country.region }}</h3>
           <h3>Population: {{ country.population }}</h3>
+          <h3>Region: {{ country.region }}</h3>
+          <h3 v-if="country.subregion">Sub Region: {{ country.subregion }}</h3>
           <h3 v-if="country.capital">Capital: {{ country.capital }}</h3>
-          <h3>Time Zone(s): {{ country.timezones }}</h3>
+          <div class="dis-fl">
+            <h3>Languages:</h3><h3 class="pd-lf" v-for="languages in country.languages">{{ languages.name }}</h3>
+          </div>
+          <div class="dis-fl">
+            <h3>Currencies:</h3><h3 class="pd-lf" v-for="currencies in country.currencies">{{ currencies.name }}</h3>
+          </div>
+          <div class="dis-fl">
+            <h3>Time Zone(s):</h3><h3 class="pd-lf" v-for="timezones in country.timezones">{{ timezones }}</h3>
+          </div>
         </div>
       </div>
     </div>
@@ -20,6 +29,7 @@
 
 <script>
 import getCountry from '../js/GetData.js'
+import getCountryList from '../js/GetList.js'
 import { useRoute } from 'vue-router'
 
 export default {
@@ -28,8 +38,10 @@ export default {
     const routeUse = useRoute()
     console.log(routeUse.params.numericCode)
     const { country, error, load } = getCountry(routeUse.params.numericCode)
+    const { countryList, errorList, loadList } = getCountryList(routeUse.params.numericCode)
     load()
-    return { country, error }
+    loadList()
+    return { country, error, countryList, errorList }
   }
 }
 </script>
@@ -42,6 +54,12 @@ export default {
   margin: auto;
 }
 
+h3 {
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
 .flag-country {
   width: auto;
 }
@@ -52,6 +70,7 @@ export default {
 }
 
 .wrapping {
+  width: 60%;
   padding: 60px;
   display: flex;
   background-color: #eee;
@@ -59,9 +78,25 @@ export default {
   border-radius: 24px;
 }
 
+.pd-lf {
+  padding-left: 10px;
+}
+
+.dis-fl{
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
 @media (max-width: 1024px) {
   .country-div {
     padding: 16% 10% 10% 10%;
+  }
+
+  .wrapping {
+    width: 68%;
+    flex-direction: column;
+    align-items: center
   }
 }
 
@@ -69,32 +104,37 @@ export default {
   .text-details {
     font-size: 14px;
   }
-  .wrapping{
-    flex-direction: column;
-    align-items: center
-  }
 }
+
 @media (max-width: 425px) {
   .country-div {
     padding: 16% 1% 1% 1%;
   }
-  .wrapping{
+
+  .wrapping {
+    width: 90%;
     padding: 24px;
   }
 }
+
 @media (max-width: 375px) {
-  .wrapping{
+  .wrapping {
+    width: 95%;
     padding: 20px;
   }
 }
+
 @media (max-width: 320px) {
-  .wrapping{
+  .wrapping {
+    width: 100%;
     padding: 8px;
   }
-  .flag-img{
+
+  .flag-img {
     border-radius: 8px;
     width: 300px;
   }
+
   .text-details {
     font-size: 13px;
   }

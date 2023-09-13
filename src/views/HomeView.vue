@@ -40,7 +40,7 @@ export default {
 
         const getCountryList = async () => {
             try {
-                let data = await fetch('http://localhost:3000/country-list')
+                let data = await fetch('http://192.168.0.83:3000/country-list')
                 if (!data.ok) {
                     throw Error('No Data Available')
                 }
@@ -206,7 +206,7 @@ export default {
 
 @media (max-width: 320px) {
     .lower-top {
-        width: auto;
+        width: 320px;
         justify-content: center;
         flex-wrap: wrap;
         padding: 4px;

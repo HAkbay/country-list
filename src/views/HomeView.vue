@@ -3,7 +3,7 @@
         <div class="lower-top">
             <div class="search-wrapper">
                 <!-- Search Bar -->
-                <div class="input-with-icon">
+                <div class="input-with-icon ">
                     <i class="fas fa-search input-icon"></i>
                     <input type="text" class="input-text" placeholder="Search for a country..." v-model="textInput"
                         @input="searchCountry(textInput)" />
@@ -40,7 +40,7 @@ export default {
 
         const getCountryList = async () => {
             try {
-                let data = await fetch('http://192.168.0.83:3000/country-list')
+                let data = await fetch('http://localhost:3000/country-list')
                 if (!data.ok) {
                     throw Error('No Data Available')
                 }
@@ -94,7 +94,7 @@ export default {
 }
 
 .lower-top {
-    margin-bottom: 18px;
+    margin-bottom: 1%;
     margin-top: 1%;
     width: 100%;
     display: flex;
@@ -116,8 +116,8 @@ export default {
 }
 
 .input-text {
-    width: 400px;
-    padding: 20px 0px 20px 35px;
+    width: 100%;
+    padding: 20px 0px 20px 50px;
     margin-left: 50px;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px;
@@ -154,9 +154,10 @@ export default {
 
 .table-cell:hover {
     background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
     .table-container {
         grid-template-columns: repeat(3, auto);
     }
@@ -168,17 +169,13 @@ export default {
         padding: 16px;
     }
 
-    .w-a {
-        padding-top: 16px;
-    }
-
     .input-with-icon {
         flex-direction: column;
         display: flex;
     }
 
     .input-text {
-        width: 350px;
+        width: 100%;
         margin-left: 20px;
     }
 
@@ -187,13 +184,51 @@ export default {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .table-container {
         grid-template-columns: repeat(2, auto);
     }
+
+    .lower-top {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .input-with-icon {
+        position: relative;
+        display: inline-block;
+    }
+
+    .input-icon {
+        position: absolute;
+        left: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .input-text {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .w-a {
+        width: 100%;
+        margin-right: 0;
+    }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 641px) {
+    .table-container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .select {
+        margin: 0;
+    }
+}
+
+@media (max-width: 426px) {
     .table-container {
         grid-template-columns: repeat(1, auto);
     }
@@ -204,7 +239,7 @@ export default {
 
 }
 
-@media (max-width: 320px) {
+@media (max-width: 321px) {
     .lower-top {
         width: 320px;
         justify-content: center;
@@ -214,7 +249,7 @@ export default {
 
     .input-text {
         width: 300px;
-        margin-left: 4px;
+        margin-left: 0;
     }
 
     .input-icon {
